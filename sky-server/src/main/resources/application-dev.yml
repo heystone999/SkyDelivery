@@ -5,4 +5,9 @@ sky:
     port: 3306
     database: sky_delivery
     username: root
-    password: 86338633
+    password: ****
+  alioss:
+    endpoint: ****************************
+    access-key-id: ************************
+    access-key-secret: ******************************
+    bucket-name: ***************
