@@ -80,7 +80,7 @@ public class OrderTask {
                 Map map = new HashMap();
                 map.put("type", 1); //1来单提醒 2客户催单
                 map.put("orderId", orders.getId());
-                map.put("content", "订单号: " + "qwertyuiop");
+                map.put("content", "订单号: " + orders.getNumber());
 
                 String json = JSON.toJSONString(map);
                 webSocketServer.sendToAllClient(json);

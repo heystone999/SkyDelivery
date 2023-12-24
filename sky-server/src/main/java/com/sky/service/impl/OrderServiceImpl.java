@@ -478,4 +478,23 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.update(orders);
     }
 
+    /**
+     * 客户催单
+     *
+     * @param id
+     */
+    @Override
+    public void reminder(Long id) {
+        Orders ordersDB = orderMapper.getById(id);
+
+        if (ordersDB == null) {
+            throw new OrderBusinessException(MessageConstant.ORDER_STATUS_ERROR);
+        }
+
+        Map map = new HashMap();
+        map.put("type", 2);//1来单提醒 2客户催单
+        map.put("content", "订单号: " + ordersDB.getNumber());
+        webSocketServer.sendToAllClient(JSON.toJSONString(map));
+    }
+
 }
